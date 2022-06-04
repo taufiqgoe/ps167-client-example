@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import com.example.ps167_android_application.R
 import com.example.ps167_android_application.databinding.FragmentMainBinding
 
@@ -27,7 +28,6 @@ class MainFragment : Fragment() {
 
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
 
         return root
     }
