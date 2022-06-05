@@ -1,25 +1,19 @@
 package com.example.ps167_android_application.data.repository
 
-import com.example.ps167_android_application.api.ProductService
+import com.example.ps167_android_application.data.model.GeneralResponse
 import com.example.ps167_android_application.data.model.ProductDto
-import com.example.ps167_android_application.data.model.WebResponse
-import retrofit2.Response
-import javax.inject.Inject
+import io.reactivex.Flowable
 
-class ProductRepository @Inject constructor(
-    private val api: ProductService,
-) {
+interface ProductRepository {
 
-    suspend fun getProduct(id: String): WebResponse<ProductDto> {
-        return api.getProduct(id)
-    }
+    fun getProduct(
+        id: String
+    ): Flowable<GeneralResponse<ProductDto>>
 
-    suspend fun listByName(
+    fun getProductByName(
         name: String,
-        page: Int? = null,
-        size: Int? = null
-    ): WebResponse<List<ProductDto>> {
-        return api.listByName(name, page, size)
-    }
+        page: Int,
+        size: Int
+    ): Flowable<GeneralResponse<List<ProductDto>>>
 
 }

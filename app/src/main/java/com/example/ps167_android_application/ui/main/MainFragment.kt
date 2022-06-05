@@ -33,9 +33,10 @@ class MainFragment : Fragment() {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        mainViewModel.getProductById("idA123")
+        mainViewModel
+            .getProductByName("ABC", 0, 0)
             .observe(viewLifecycleOwner) {
-                binding.textView.text = it.data.toString()
+                binding.textView.text = it.toString()
             }
 
         return root

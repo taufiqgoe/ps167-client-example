@@ -1,27 +1,28 @@
 package com.example.ps167_android_application.api
 
 import com.example.ps167_android_application.data.model.ProductDto
-import com.example.ps167_android_application.data.model.WebResponse
+import com.example.ps167_android_application.data.model.GeneralResponse
 import com.example.ps167_android_application.util.ApiUtil
+import io.reactivex.Flowable
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface ProductService {
+interface ProductApiService {
 
     @GET("/api/p/{id}")
     @Headers("Content-Type: application/json", ApiUtil.API_KEY)
-    suspend fun getProduct(
+    fun getProduct(
         @Path("id") id: String
-    ): WebResponse<ProductDto>
+    ): Flowable<GeneralResponse<ProductDto>>
 
     @GET("/api/p")
     @Headers("Content-Type: application/json", ApiUtil.API_KEY)
-    suspend fun listByName(
+    fun listByName(
         @Query(value = "name") name: String,
         @Query(value = "page") page: Int? = 0,
         @Query(value = "size") size: Int? = 10
-    ): WebResponse<List<ProductDto>>
+    ): Flowable<GeneralResponse<List<ProductDto>>>
 
 }
