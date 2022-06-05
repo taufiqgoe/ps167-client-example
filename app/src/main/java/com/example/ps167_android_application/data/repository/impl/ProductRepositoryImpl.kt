@@ -39,8 +39,8 @@ class ProductRepositoryImpl @Inject constructor(
     @SuppressLint("CheckResult")
     override fun getProductByName(
         name: String,
-        page: Int,
-        size: Int
+        page: Int?,
+        size: Int?
     ): Flowable<GeneralResponse<List<ProductDto>>> {
         val data = PublishSubject.create<GeneralResponse<List<ProductDto>>>()
         service

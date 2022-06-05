@@ -34,7 +34,7 @@ class MainFragment : Fragment() {
         val root: View = binding.root
 
         mainViewModel
-            .getProductByName("ABC", 0, 0)
+            .getProductByName("abc")
             .observe(viewLifecycleOwner) {
                 binding.textView.text = it.toString()
             }

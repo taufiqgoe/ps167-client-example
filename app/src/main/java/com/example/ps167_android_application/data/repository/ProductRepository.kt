@@ -12,8 +12,8 @@ interface ProductRepository {
 
     fun getProductByName(
         name: String,
-        page: Int,
-        size: Int
+        page: Int? = 1,
+        size: Int? = 10
     ): Flowable<GeneralResponse<List<ProductDto>>>
 
 }

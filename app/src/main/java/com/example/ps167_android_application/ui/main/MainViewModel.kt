@@ -18,7 +18,7 @@ class MainViewModel @Inject constructor(
         return LiveDataReactiveStreams.fromPublisher(productRepository.getProduct(id))
     }
 
-    fun getProductByName(name: String, page: Int, size: Int): LiveData<GeneralResponse<List<ProductDto>>> {
+    fun getProductByName(name: String, page: Int? = 1, size: Int? = 10): LiveData<GeneralResponse<List<ProductDto>>> {
         return LiveDataReactiveStreams.fromPublisher(productRepository.getProductByName(name, page, size))
     }
 }

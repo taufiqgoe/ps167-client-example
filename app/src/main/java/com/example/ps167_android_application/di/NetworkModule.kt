@@ -1,5 +1,6 @@
 package com.example.ps167_android_application.di
 
+import com.example.ps167_android_application.BuildConfig
 import com.example.ps167_android_application.api.ProductApiService
 import com.example.ps167_android_application.util.ApiUtil
 import dagger.Module
@@ -18,7 +19,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun providerRetrofit(): Retrofit = Retrofit.Builder()
-        .baseUrl(ApiUtil.BASE_URL)
+        .baseUrl(BuildConfig.PRODUCT_HTTP_SECRET_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
